@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Category>
+
+@{
+    ViewBag.PageTitle = "إدارة الفئات";
+    ViewBag.CardTitle = "عرض الفئات";
+}
+<section dir="rtl">
+<div>
+    <a class="btn btn-primary" href="/Admin/Category/Create">إضافة فئة</a>
+</div>
+
+<br />
+<table   class="table table-hover" width="100%">
+    <thead class="text-bold">
+        <tr>
+            <td>الاسم</td>
+            <td>الوصف</td>
+            <td>تاريخ الإنشاء</td>
+            <td>الإجراءات</td>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@Html.Raw(item.Description)</td>
+            <td>@item.CreatedTime</td>
+            <td>
+                <a class="btn btn-success" href="/Admin/Category/Edit/@item.Id">تعديل</a>
+                <a class="btn btn-danger" href="/Admin/Category/Delete/@item.Id">حذف</a>
+            </td>
+        </tr>
+    }
+</table>
+</section>

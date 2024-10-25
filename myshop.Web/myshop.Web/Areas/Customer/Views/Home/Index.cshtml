@@ -1,0 +1,175 @@
+﻿@model IEnumerable<Product>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common;
+
+<section class="py-5">
+
+    <!-- عرض المنتجات من ViewBag.prod في كرت منفصل بتصميم احترافي -->
+    @if (ViewBag.prod != null)
+    {
+        var productList = ViewBag.prod as List<Product>; // تحويل ViewBag.prod إلى List<Product>
+
+        <div class="container px-4 px-lg-5 mt-5">
+            <h3 class="text-center">  احدث المنتجات  </h3>
+            <div class="row py-3">
+                @foreach (var product in productList)
+                {
+                    <div class="col-md-3 gap-0 g-0">
+                        <div class="card m-1">
+                            <img height="300" src="~/@product.Img" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6">
+                                    @(product.Name.Length > 35 ? product.Name.Substring(0, 35) + "..." : product.Name)
+
+                                </h5>
+
+                                <p class="card-text">تصنيف: @product.Category.Name</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="card-price m-0 text-warning">$@product.Price</h6>
+                                    <a asp-action="Details" asp-route-ProductId="@product.Id" class="btn btn-primary">
+                                        <i class="fas fa-info-circle"></i> عرض تفاصيل المنتج
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                @if (productList == null || !productList.Any())
+                {
+                    <p class="text-center">لا توجد منتجات لعرضها.</p>
+                }
+            </div>
+        </div>
+    }
+</section>
+
+
+
+
+
+<section class="py-5">
+
+    @if (ViewBag.prodTopPrice != null)
+    {
+        var productList = ViewBag.prodTopPrice as List<Product>; 
+
+        <div class="container px-4 px-lg-5 mt-5">
+            <h3 class="text-center"> الاعلي سعر  </h3>
+            <div class="row py-3">
+                @foreach (var product in productList)
+                {
+                    <div class="col-md-3 gap-0 g-0">
+                        <div class="card m-1">
+                            <img height="300" src="~/@product.Img" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6">
+                                    @(product.Name.Length > 35 ? product.Name.Substring(0, 35) + "..." : product.Name)
+
+                                </h5>
+
+                                <p class="card-text">تصنيف: @product.Category.Name</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="card-price m-0 text-warning">$@product.Price</h6>
+                                    <a asp-action="Details" asp-route-ProductId="@product.Id" class="btn btn-primary">
+                                        <i class="fas fa-info-circle"></i> عرض تفاصيل المنتج
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                @if (productList == null || !productList.Any())
+                {
+                    <p class="text-center">لا توجد منتجات لعرضها.</p>
+                }
+            </div>
+        </div>
+    }
+</section>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<section class="py-5 text-center">
+
+    <!-- قائمة الفئات -->
+    @foreach (var category in ViewBag.cat)
+    {
+        <a class="btn btn-success" href="#" data-category="@category.Name">
+            @category.Name
+        </a>
+    }
+
+   
+
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="product-list">
+            <!-- سيتم هنا عرض المنتجات باستخدام AJAX -->
+            @foreach (var item in Model)
+            {
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <a asp-action="Details" asp-route-ProductId="@item.Id"><img class="card-img-top" src="~/@item.Img" alt="..." width="450" height="300" /></a>
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">@item.Name</h5>
+                                $@item.Price
+                            </div>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <a asp-action="Details" asp-route-ProductId="@item.Id" class="btn btn-outline-dark mt-auto">عرض التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+
+<script>
+    $(document).ready(function () {
+        // عند الضغط على زر عرض الكل
+        $("#show-all").click(function (e) {
+            e.preventDefault(); // منع إعادة تحميل الصفحة
+            $.ajax({
+                url: '@Url.Action("GetAllProducts")', // رابط الأكشن المسؤول عن إرجاع المنتجات
+                type: 'GET',
+                success: function (data) {
+                    $("#product-list").html(data); // تحديث قائمة المنتجات بدون إعادة تحميل الصفحة
+                }
+            });
+        });
+
+        // عند الضغط على زر فئة معينة
+        $("a[data-category]").click(function (e) {
+            e.preventDefault();
+            var categoryName = $(this).attr("data-category");
+            $.ajax({
+                url: '@Url.Action("FilterByCategory")',
+                type: 'GET',
+                data: { categoryName: categoryName },
+                success: function (data) {
+                    $("#product-list").html(data); // تحديث قائمة المنتجات المصفاة
+                }
+            });
+        });
+    });
+</script>
+

@@ -1,0 +1,98 @@
+﻿@page
+@using myshop.Utilities;
+@model RegisterModel
+
+<h1>@ViewData["Title"]</h1>
+
+<style>
+    .imgdiv {
+        background-size: 100% 100%;
+    }
+
+    .loginimg {
+        height: auto;
+        max-width: 100%;
+    }
+</style>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row">
+            <div class="col-md-5">
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <h2>إنشاء حساب جديد.</h2>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Name" class="form-control" autocomplete="Name" aria-required="true" placeholder="الاسم" />
+                        <label asp-for="Input.Name">الاسم</label>
+                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Address" class="form-control" autocomplete="Address" aria-required="true" placeholder="العنوان" />
+                        <label asp-for="Input.Address">العنوان</label>
+                        <span asp-validation-for="Input.Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.City" class="form-control" autocomplete="City" aria-required="true" placeholder="المدينة" />
+                        <label asp-for="Input.City">المدينة</label>
+                        <span asp-validation-for="Input.City" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                        <label asp-for="Input.Email">البريد الإلكتروني</label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="كلمة المرور" />
+                        <label asp-for="Input.Password">كلمة المرور</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="تأكيد كلمة المرور" />
+                        <label asp-for="Input.ConfirmPassword">تأكيد كلمة المرور</label>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    @if (User.IsInRole(SD.AdminRole))
+                    {
+                        <div dir="ltr">
+
+                            <input type="radio" value="@SD.AdminRole" name="RoleRadio" /> @SD.AdminRole
+                            <input type="radio" value="@SD.SellerRole" name="RoleRadio" /> @SD.SellerRole
+
+                        </div>
+                    }
+
+
+                    @if (User.IsInRole(SD.AdminRole))
+                    {
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">إنشاء مستخدم جديد</button>
+                    }
+                    else
+                    {
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">تسجيل</button>
+                    }
+                </form>
+            </div>
+
+            <div class="col-md-6 col-md-offset-2">
+                <section>
+                    <div class="imgdiv">
+                        <img class="loginimg" src="~/img/login@4x.png" />
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

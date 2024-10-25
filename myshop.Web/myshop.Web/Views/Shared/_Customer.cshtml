@@ -1,0 +1,115 @@
+﻿@using Microsoft.AspNetCore.Http
+@using myshop.Utilities
+@inject IHttpContextAccessor httpContextAccessor
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>متجري</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/customer/css/styles.css" rel="stylesheet" />
+    <script src="https://cdn.tiny.cloud/1/your-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+</head>
+<body dir="rtl">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/Customer/Home/Index">متجري</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Customer/Home/Index">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Customer/Home/Allproducts">المنتجات</a></li>
+                
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole(SD.AdminRole))
+                        {
+                            <li class="nav-item"><a class="nav-link active" href="/Admin/Dashboard/Index">لوحة التحكم</a></li>
+                        }
+                        else if (User.IsInRole(SD.SellerRole))
+                         {
+                            <li class="nav-item"><a class="nav-link active" href="/Seller/Dashboard/Index">لوحة التحكم</a></li>
+
+                        }
+                                else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">إعداداتي</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">طلباتي</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" href="/Identity/Account/Manage">تعديل الملف الشخصي</a></li>
+                                </ul>
+                            </li>
+                        }
+
+                    }
+                </ul>
+                <partial name="_LoginPartial" />
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form class="d-flex">
+                        <a href="/Customer/Cart/Index" class="btn btn-outline-dark">
+                            <i class="bi-cart-fill me-1"></i>
+                            السلة
+                            @await Component.InvokeAsync("ShoppingCart")
+                        </a>
+                    </form>
+                }
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">متجر المحاصيل الزراعية</h1>
+                <p class="lead fw-normal text-white-50 mb-0">أهلا بكم في متجر المحاصيل الزراعية عبر الإنترنت</p>
+            </div>
+        </div>
+    </header>
+    <!-- Section-->
+    @RenderBody()
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">حقوق النشر &copy; موقعك 2023</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/customer/js/scripts.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        tinymce.init({
+            selector: '#content',
+            height: 300,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | bold italic backcolor | \
+                              alignleft aligncenter alignright alignjustify | \
+                              bullist numlist outdent indent | removeformat | help',
+            api_key: 'ihc0wo88x9mhnh0fspvyl6x6l5hbuplw8ol1eabw8z5dhewx' // هذا هو مفتاح API الخاص بك
+        });
+    </script>
+
+</body>
+</html>

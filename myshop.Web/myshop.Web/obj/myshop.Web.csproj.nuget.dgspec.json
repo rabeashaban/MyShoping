@@ -1,0 +1,345 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Web\\myshop.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.DataAccess\\myshop.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.DataAccess\\myshop.DataAccess.csproj",
+        "projectName": "myshop.DataAccess",
+        "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.DataAccess\\myshop.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\rshab\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rshab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Entities\\myshop.Entities.csproj": {
+                "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Entities\\myshop.Entities.csproj"
+              },
+              "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\myshop.Utilities.csproj": {
+                "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\myshop.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Entities\\myshop.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Entities\\myshop.Entities.csproj",
+        "projectName": "myshop.Entities",
+        "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Entities\\myshop.Entities.csproj",
+        "packagesPath": "C:\\Users\\rshab\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rshab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\myshop.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\myshop.Utilities.csproj",
+        "projectName": "myshop.Utilities",
+        "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\myshop.Utilities.csproj",
+        "packagesPath": "C:\\Users\\rshab\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rshab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Web\\myshop.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Web\\myshop.Web.csproj",
+        "projectName": "myshop.Web",
+        "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Web\\myshop.Web.csproj",
+        "packagesPath": "C:\\Users\\rshab\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rshab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.DataAccess\\myshop.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.DataAccess\\myshop.DataAccess.csproj"
+              },
+              "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\myshop.Utilities.csproj": {
+                "projectPath": "C:\\Users\\rshab\\Downloads\\Compressed\\myshop.Web_3\\myshop.Web\\myshop.Utilities\\myshop.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[43.4.0, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[8.4.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
